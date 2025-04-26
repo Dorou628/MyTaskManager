@@ -31,6 +31,7 @@
             voice = new Button();
             TaskListBox = new CheckedListBox();
             today = new Button();
+            ShowSelectDate = new DateTimePicker();
             SuspendLayout();
             // 
             // daybefore
@@ -128,11 +129,20 @@
             today.UseVisualStyleBackColor = true;
             today.Click += today_Click;
             // 
+            // ShowSelectDate
+            // 
+            ShowSelectDate.Location = new Point(316, 33);
+            ShowSelectDate.Name = "ShowSelectDate";
+            ShowSelectDate.Size = new Size(164, 27);
+            ShowSelectDate.TabIndex = 9;
+            ShowSelectDate.ValueChanged += ShowSelectDate_ValueChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(643, 600);
+            Controls.Add(ShowSelectDate);
             Controls.Add(today);
             Controls.Add(TaskListBox);
             Controls.Add(voice);
@@ -160,5 +170,6 @@
         private Button voice;
         private CheckedListBox TaskListBox;
         private Button today;
+        private DateTimePicker ShowSelectDate;
     }
 }

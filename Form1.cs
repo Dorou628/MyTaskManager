@@ -18,7 +18,8 @@ namespace MyTaskManager
 
         private void RefreshTaskListUI()//根据所选日期刷新任务列表和date标签
         {
-            date.Text = selectedDate.ToString("yyyy-MM-dd");
+            ShowSelectDate.Value = selectedDate;
+            date.Text = selectedDate.ToString("yyyy-MM-dd");//没用了（被ShowSelectDate覆盖）
             TaskListBox.Items.Clear();
             foreach (var task in taskManager.GetTasksByDate(selectedDate))
             {
@@ -104,7 +105,7 @@ namespace MyTaskManager
             else
             {
                 task.IsCompleted = false;
-            }  
+            }
         }
 
         private void InitReminderTimer()
@@ -132,6 +133,12 @@ namespace MyTaskManager
                     RefreshTaskListUI(); // 刷新 UI
                 }
             }
+        }
+
+        private void ShowSelectDate_ValueChanged(object sender, EventArgs e)
+        {
+            selectedDate = ShowSelectDate.Value;
+            RefreshTaskListUI();
         }
     }
 }
