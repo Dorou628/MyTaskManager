@@ -66,6 +66,7 @@
             TaskListBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TaskListBox.ForeColor = Color.Black;
             TaskListBox.FormattingEnabled = true;
+            TaskListBox.ImeMode = ImeMode.NoControl;
             TaskListBox.IntegralHeight = false;
             TaskListBox.Location = new Point(26, 160);
             TaskListBox.Margin = new Padding(4);
@@ -73,6 +74,7 @@
             TaskListBox.Size = new Size(590, 378);
             TaskListBox.TabIndex = 0;
             TaskListBox.ItemCheck += TaskListBox_ItemCheck;
+            TaskListBox.DrawItem += TaskListBox_DrawItem;
             TaskListBox.DoubleClick += TaskListBox_DoubleClick;
             TaskListBox.MouseDown += TaskListBox_MouseDown;
             // 

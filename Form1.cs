@@ -140,5 +140,39 @@ namespace MyTaskManager
             selectedDate = ShowSelectDate.Value;
             RefreshTaskListUI();
         }
+
+
+        private void TaskListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // 任务项
+            var task = TaskListBox.Items[e.Index] as MyTask;
+            bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+            bool isCompleted = TaskListBox.GetItemChecked(e.Index);
+
+            // 背景色
+            e.Graphics.FillRectangle(
+                new SolidBrush(isSelected ? Color.LightSkyBlue : Color.White),
+                e.Bounds
+            );
+
+            // 文字样式
+            string displayText = $"{task.Name} - {(task.Priority ?? PriorityLevel.Low)}";
+            Font font = isCompleted ? new Font(e.Font, FontStyle.Strikeout) : e.Font;
+            Color textColor = isCompleted ? Color.Gray : Color.Black;
+
+            TextRenderer.DrawText(
+                e.Graphics,
+                displayText,
+                font,
+                e.Bounds,
+                textColor,
+                TextFormatFlags.Left | TextFormatFlags.VerticalCenter
+            );
+
+            e.DrawFocusRectangle();
+        }
+
     }
 }

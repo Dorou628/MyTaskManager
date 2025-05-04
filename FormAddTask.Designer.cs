@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ConfirmAdd = new Button();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             TaskName = new Label();
             TaskDiscription = new Label();
             label3 = new Label();
@@ -38,17 +39,8 @@
             dtpReminder = new DateTimePicker();
             label1 = new Label();
             ReminderSet = new CheckBox();
+            ConfirmAdd = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
-            // 
-            // ConfirmAdd
-            // 
-            ConfirmAdd.Location = new Point(375, 246);
-            ConfirmAdd.Name = "ConfirmAdd";
-            ConfirmAdd.Size = new Size(94, 29);
-            ConfirmAdd.TabIndex = 0;
-            ConfirmAdd.Text = "添加任务";
-            ConfirmAdd.UseVisualStyleBackColor = true;
-            ConfirmAdd.Click += ConfirmAdd_Click;
             // 
             // TaskName
             // 
@@ -134,11 +126,30 @@
             ReminderSet.UseVisualStyleBackColor = true;
             ReminderSet.CheckedChanged += ReminderSet_CheckedChanged;
             // 
+            // ConfirmAdd
+            // 
+            ConfirmAdd.BorderRadius = 10;
+            ConfirmAdd.CustomizableEdges = customizableEdges1;
+            ConfirmAdd.DisabledState.BorderColor = Color.DarkGray;
+            ConfirmAdd.DisabledState.CustomBorderColor = Color.DarkGray;
+            ConfirmAdd.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ConfirmAdd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ConfirmAdd.Font = new Font("Segoe UI", 9F);
+            ConfirmAdd.ForeColor = Color.White;
+            ConfirmAdd.Location = new Point(318, 240);
+            ConfirmAdd.Name = "ConfirmAdd";
+            ConfirmAdd.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            ConfirmAdd.Size = new Size(151, 43);
+            ConfirmAdd.TabIndex = 10;
+            ConfirmAdd.Text = "添加任务";
+            ConfirmAdd.Click += ConfirmAdd_Click;
+            // 
             // FormAddTask
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(505, 299);
+            Controls.Add(ConfirmAdd);
             Controls.Add(ReminderSet);
             Controls.Add(label1);
             Controls.Add(dtpReminder);
@@ -148,7 +159,6 @@
             Controls.Add(label3);
             Controls.Add(TaskDiscription);
             Controls.Add(TaskName);
-            Controls.Add(ConfirmAdd);
             Name = "FormAddTask";
             Text = "FormAddTask";
             ResumeLayout(false);
@@ -156,8 +166,6 @@
         }
 
         #endregion
-
-        private Button ConfirmAdd;
         private Label TaskName;
         private Label TaskDiscription;
         private Label label3;
@@ -167,5 +175,6 @@
         private DateTimePicker dtpReminder;
         private Label label1;
         private CheckBox ReminderSet;
+        private Guna.UI2.WinForms.Guna2Button ConfirmAdd;
     }
 }

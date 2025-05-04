@@ -22,6 +22,10 @@
 
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             TaskName = new Label();
             TaskDiscription = new Label();
             label3 = new Label();
@@ -31,8 +35,8 @@
             ChosenTaskReminder = new DateTimePicker();
             label1 = new Label();
             ReminderSet = new CheckBox();
-            SaveEdit = new Button();
-            DeleteTask = new Button();
+            DeleteTask = new Guna.UI2.WinForms.Guna2Button();
+            SaveEdit = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // TaskName
@@ -119,33 +123,51 @@
             ReminderSet.UseVisualStyleBackColor = true;
             ReminderSet.CheckedChanged += ReminderSet_CheckedChanged;
             // 
-            // SaveEdit
-            // 
-            SaveEdit.Location = new Point(375, 238);
-            SaveEdit.Name = "SaveEdit";
-            SaveEdit.Size = new Size(94, 29);
-            SaveEdit.TabIndex = 10;
-            SaveEdit.Text = "保存";
-            SaveEdit.UseVisualStyleBackColor = true;
-            SaveEdit.Click += SaveEdit_Click;
-            // 
             // DeleteTask
             // 
-            DeleteTask.Location = new Point(272, 238);
+            DeleteTask.BorderRadius = 10;
+            DeleteTask.CustomizableEdges = customizableEdges1;
+            DeleteTask.DisabledState.BorderColor = Color.DarkGray;
+            DeleteTask.DisabledState.CustomBorderColor = Color.DarkGray;
+            DeleteTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            DeleteTask.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            DeleteTask.FillColor = Color.FromArgb(192, 64, 0);
+            DeleteTask.Font = new Font("Segoe UI", 9F);
+            DeleteTask.ForeColor = Color.White;
+            DeleteTask.Location = new Point(281, 238);
             DeleteTask.Name = "DeleteTask";
-            DeleteTask.Size = new Size(94, 29);
+            DeleteTask.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            DeleteTask.Size = new Size(101, 29);
             DeleteTask.TabIndex = 11;
             DeleteTask.Text = "删除任务";
-            DeleteTask.UseVisualStyleBackColor = true;
             DeleteTask.Click += DeleteTask_Click;
+            // 
+            // SaveEdit
+            // 
+            SaveEdit.BorderRadius = 10;
+            SaveEdit.CustomizableEdges = customizableEdges3;
+            SaveEdit.DisabledState.BorderColor = Color.DarkGray;
+            SaveEdit.DisabledState.CustomBorderColor = Color.DarkGray;
+            SaveEdit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SaveEdit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SaveEdit.Font = new Font("Segoe UI", 9F);
+            SaveEdit.ForeColor = Color.White;
+            SaveEdit.Location = new Point(400, 238);
+            SaveEdit.Name = "SaveEdit";
+            SaveEdit.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            SaveEdit.Size = new Size(93, 29);
+            SaveEdit.TabIndex = 12;
+            SaveEdit.Text = "保存";
+            SaveEdit.Click += SaveEdit_Click;
             // 
             // FormEditTask
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(505, 299);
-            Controls.Add(DeleteTask);
             Controls.Add(SaveEdit);
+            Controls.Add(DeleteTask);
             Controls.Add(ReminderSet);
             Controls.Add(label1);
             Controls.Add(ChosenTaskReminder);
@@ -169,7 +191,7 @@
         private DateTimePicker ChosenTaskReminder;
         private Label label1;
         private CheckBox ReminderSet;
-        private Button SaveEdit;
-        private Button DeleteTask;
+        private Guna.UI2.WinForms.Guna2Button DeleteTask;
+        private Guna.UI2.WinForms.Guna2Button SaveEdit;
     }
 }
