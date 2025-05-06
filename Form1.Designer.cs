@@ -217,6 +217,7 @@
             voice.Size = new Size(127, 40);
             voice.TabIndex = 17;
             voice.Text = "语音添加";
+            voice.Click += voice_Click;
             // 
             // Form1
             // 

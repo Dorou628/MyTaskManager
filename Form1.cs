@@ -174,5 +174,10 @@ namespace MyTaskManager
             e.DrawFocusRectangle();
         }
 
+        private void voice_Click(object sender, EventArgs e)
+        {
+            Speech speechForm = new Speech();//ÓïÒôÊ¶±ð´°¿Ú
+            speechForm.Show();
+        }
     }
 }
