@@ -16,7 +16,10 @@ namespace MyTaskManager
         // 从数据库初始化任务列表
         public void ListInitialize()
         {
+            TaskDatabaseHelper.InitializeDatabase();//初始化数据库
+            _tasks = TaskDatabaseHelper.GetAllTasks();
             // 生成一些测试任务，仅用于测试
+            /*
             _tasks = new List<MyTask>
             {
                 new MyTask("写周报", DateTime.Today, "每周五要写", PriorityLevel.High, DateTime.Now.AddMinutes(10)),
@@ -25,6 +28,7 @@ namespace MyTaskManager
                 new MyTask("学习WPF", DateTime.Today, "继续完善任务管理系统", PriorityLevel.High),
                 new MyTask("看电影", DateTime.Today.AddDays(-1), "放松一下", PriorityLevel.Low)
             };
+            */
         }
 
         // 添加任务
@@ -80,6 +84,12 @@ namespace MyTaskManager
                 .OrderByDescending(t => t.Priority) // 按优先级排序
                 .ThenBy(t => t.Name)      // 名字排序
                 .ToList();
+        }
+
+        //数据库保存
+        public void SaveTasks()
+        {
+            TaskDatabaseHelper.SaveAllTasks(_tasks);
         }
     }
 }

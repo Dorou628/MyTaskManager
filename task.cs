@@ -22,6 +22,9 @@ namespace MyTaskManager
         public DateTime? ReminderTime { get; set; }// 提醒时间
         public string? Description { get; set; }
         public PriorityLevel? Priority { get; set; }
+
+        public MyTask() { }//无参构造函数,数据库使用
+
         public MyTask(string name,DateTime createdate,//必须传入任务名和创建时间
                       string? description = null,
                       PriorityLevel? priority = null,

@@ -164,7 +164,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.LightGray;
             ClientSize = new Size(505, 299);
             Controls.Add(SaveEdit);
             Controls.Add(DeleteTask);
@@ -178,7 +178,7 @@
             Controls.Add(TaskDiscription);
             Controls.Add(TaskName);
             Name = "FormEditTask";
-            Text = "FormEditTask";
+            Text = "任务编辑";
             ResumeLayout(false);
             PerformLayout();
         }

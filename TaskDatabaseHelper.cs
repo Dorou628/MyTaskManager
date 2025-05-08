@@ -61,7 +61,7 @@ namespace MyTaskManager
                 }
             }
         }
-        /*
+
         public static List<MyTask> GetAllTasks()
         {
             var tasks = new List<MyTask>();
@@ -77,10 +77,12 @@ namespace MyTaskManager
                     {
                         var task = new MyTask()
                         {
+                            ID = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            CreateDate = DateTime.Parse(reader["CreateDate"].ToString()),
                             Description = reader["Description"].ToString(),
                             Priority = (PriorityLevel)Convert.ToInt32(reader["Priority"]),
-                            IsCompleted = Convert.ToInt32(reader["IsCompleted"]) == 1,
-                            CreateDate = DateTime.Parse(reader["CreateDate"].ToString())
+                            IsCompleted = Convert.ToInt32(reader["IsCompleted"]) == 1
                         };
 
                         string reminderStr = reader["ReminderTime"]?.ToString();
@@ -96,6 +98,5 @@ namespace MyTaskManager
 
             return tasks;
         }
-        */
     }
 }

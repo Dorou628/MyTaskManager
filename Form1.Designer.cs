@@ -68,10 +68,10 @@
             TaskListBox.FormattingEnabled = true;
             TaskListBox.ImeMode = ImeMode.NoControl;
             TaskListBox.IntegralHeight = false;
-            TaskListBox.Location = new Point(26, 160);
+            TaskListBox.Location = new Point(26, 140);
             TaskListBox.Margin = new Padding(4);
             TaskListBox.Name = "TaskListBox";
-            TaskListBox.Size = new Size(590, 378);
+            TaskListBox.Size = new Size(590, 462);
             TaskListBox.TabIndex = 0;
             TaskListBox.ItemCheck += TaskListBox_ItemCheck;
             TaskListBox.DrawItem += TaskListBox_DrawItem;
@@ -133,6 +133,7 @@
             // 
             // today
             // 
+            today.BackColor = Color.Gainsboro;
             today.BorderRadius = 10;
             today.CustomizableEdges = customizableEdges7;
             today.DisabledState.BorderColor = Color.DarkGray;
@@ -223,7 +224,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.Gainsboro;
             ClientSize = new Size(643, 600);
             Controls.Add(voice);
             Controls.Add(addtask);
@@ -238,6 +239,7 @@
             Margin = new Padding(4);
             Name = "Form1";
             Text = "我的任务管理器";
+            FormClosing += Form1_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

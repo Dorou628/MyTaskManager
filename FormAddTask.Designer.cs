@@ -148,6 +148,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Gainsboro;
             ClientSize = new Size(505, 299);
             Controls.Add(ConfirmAdd);
             Controls.Add(ReminderSet);
@@ -160,7 +161,7 @@
             Controls.Add(TaskDiscription);
             Controls.Add(TaskName);
             Name = "FormAddTask";
-            Text = "FormAddTask";
+            Text = "任务添加";
             ResumeLayout(false);
             PerformLayout();
         }

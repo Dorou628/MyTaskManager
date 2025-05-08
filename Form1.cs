@@ -179,5 +179,10 @@ namespace MyTaskManager
             Speech speechForm = new Speech();//语音识别窗口
             speechForm.Show();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            taskManager.SaveTasks(); // 保存所有任务到数据库
+        }
     }
 }
