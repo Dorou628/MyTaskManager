@@ -184,6 +184,7 @@
             stats.Size = new Size(129, 40);
             stats.TabIndex = 15;
             stats.Text = "统计";
+            stats.Click += stats_Click;
             // 
             // addtask
             // 

@@ -199,5 +199,15 @@ namespace MyTaskManager
             taskManager.AddTask(newTask); // 将任务添加到 TaskManager
             RefreshTaskListUI(); // 刷新任务列表 UI
         }
+
+        private void stats_Click(object sender, EventArgs e)
+        {
+            // 获取任务列表
+            var tasks = taskManager.GetAllTasks();
+
+            // 将任务列表传入 StatisticsForm
+            var statsForm = new StatisticsForm(tasks);
+            statsForm.Show();
+        }
     }
 }

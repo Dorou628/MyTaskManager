@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace MyTaskManager
@@ -91,5 +92,55 @@ namespace MyTaskManager
         {
             TaskDatabaseHelper.SaveAllTasks(_tasks);
         }
+
+        // 统计
+        public class DailyStat
+        {
+            public DateTime Date { get; set; }// 表示具体哪一天
+            public int TotalTasks { get; set; }// 当天的任务总数
+            public double CompletionRate { get; set; }// 当日任务完成率（百分比）
+        }
+
+        // 按周统计
+        public List<DailyStat> GetDailyStatsByWeek(DateTime anyDateInWeek)
+        {
+            var cal = CultureInfo.CurrentCulture.Calendar;
+            var weekRule = CalendarWeekRule.FirstDay;
+            var firstDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
+
+            // 计算出该周一的日期
+            int diff = (7 + (anyDateInWeek.DayOfWeek - firstDayOfWeek)) % 7;
+            DateTime weekStart = anyDateInWeek.Date.AddDays(-diff);
+            DateTime weekEnd = weekStart.AddDays(6);
+
+            return _tasks
+                .Where(t => t.CreateDate.Date >= weekStart && t.CreateDate.Date <= weekEnd)
+                .GroupBy(t => t.CreateDate.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new DailyStat
+                {
+                    Date = g.Key,
+                    TotalTasks = g.Count(),
+                    CompletionRate = g.Count(t => t.IsCompleted) * 100.0 / g.Count()
+                })
+                .ToList();
+        }
+
+        // 按月统计
+        public List<DailyStat> GetDailyStatsByMonth(int year, int month)
+        {
+            return _tasks
+                .Where(t => t.CreateDate.Year == year && t.CreateDate.Month == month)
+                .GroupBy(t => t.CreateDate.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new DailyStat
+                {
+                    Date = g.Key,
+                    TotalTasks = g.Count(),
+                    CompletionRate = g.Count(t => t.IsCompleted) * 100.0 / g.Count()
+                })
+                .ToList();
+        }
+
     }
 }
