@@ -1,4 +1,5 @@
 using System.Media;
+using TomatoClock;
 
 namespace MyTaskManager
 {
@@ -7,9 +8,12 @@ namespace MyTaskManager
         private TaskManager taskManager = new TaskManager();//任务管理器
         private DateTime selectedDate = DateTime.Today;//所选的日期，初始化为今天
         private System.Windows.Forms.Timer reminderTimer = new System.Windows.Forms.Timer();
+        private Tomato _tomatoForm;
+        private readonly ITomatoService _tomatoService;
 
         public Form1()
         {
+            _tomatoService = new TomatoClockService();
             InitializeComponent();
             taskManager.ListInitialize();
             RefreshTaskListUI();
@@ -183,6 +187,11 @@ namespace MyTaskManager
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             taskManager.SaveTasks(); // 保存所有任务到数据库
+        }
+
+        private void timer_Click(object sender, EventArgs e)
+        {
+            _tomatoService.ShowTomatoClock();
         }
     }
 }

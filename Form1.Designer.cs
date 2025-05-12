@@ -166,6 +166,7 @@
             timer.Size = new Size(129, 40);
             timer.TabIndex = 14;
             timer.Text = "番茄钟";
+            timer.Click += timer_Click;
             // 
             // stats
             // 
