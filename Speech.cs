@@ -86,6 +86,7 @@ namespace MyTaskManager
             }
         }
 
+
         private async void btnSendToDeepSeek_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSpeechContent.Text))
