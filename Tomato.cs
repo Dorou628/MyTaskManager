@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace TomatoClock
 {
-    public partial class Tomato:Form
+    public partial class Tomato : Form
     {
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool IsWindowVisible(IntPtr hWnd);
@@ -34,7 +34,7 @@ namespace TomatoClock
             numericBreak.Value = breakDuration / 60;
             InitializeTimer();
             InitializeProcessCheckTimer();
-            
+
         }
         private void InitializeProcessCheckTimer()
         {
@@ -177,7 +177,7 @@ namespace TomatoClock
         {
             workDuration = (int)numericWork.Value * 60;
             breakDuration = (int)numericBreak.Value * 60;
-            if(isWorkTime)
+            if (isWorkTime)
             {
                 remainingSeconds = workDuration;
 
@@ -188,7 +188,7 @@ namespace TomatoClock
             }
             UpdateDisplay();
             MessageBox.Show("…Ë÷√≥…π¶");
-            
+
 
         }
 
@@ -196,11 +196,11 @@ namespace TomatoClock
         {
             numericWork.Value = workDuration / 60;
             numericBreak.Value = breakDuration / 60;
-            
-            
-            
-            
-           
+
+
+
+
+
         }
         private void buttonSettings_Click(object sender, EventArgs e)
         {
@@ -304,6 +304,16 @@ namespace TomatoClock
             panelSettime.Visible = false;
             panelSettime.Enabled = false;
             buttonRvWhite.Enabled = false;
+        }
+
+        private void panelSettime_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkedListProcesses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

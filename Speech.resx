@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtConditions.DefaultText" xml:space="preserve">
+    <value>请以 JSON 格式返回数据,You are a helpful assistant. Extract task information from the user input and return it in JSON format with fields: 'name' (task name), 'date' (yyyy-MM-dd), 'priority' (Low, Medium, High), 'reminder' (yyyy-MM-ddTHH:mm:ss, or null), 'description' (or null). If any field is missing, use null or default values.</value>
+  </data>
 </root>

@@ -180,7 +180,7 @@ namespace MyTaskManager
 
         private void voice_Click(object sender, EventArgs e)
         {
-            Speech speechForm = new Speech();//语音识别窗口
+            Speech speechForm = new Speech(this);//语音识别窗口
             speechForm.Show();
         }
 
@@ -192,6 +192,12 @@ namespace MyTaskManager
         private void timer_Click(object sender, EventArgs e)
         {
             _tomatoService.ShowTomatoClock();
+        }
+
+        public void AddTaskFromSpeech(MyTask newTask)
+        {
+            taskManager.AddTask(newTask); // 将任务添加到 TaskManager
+            RefreshTaskListUI(); // 刷新任务列表 UI
         }
     }
 }

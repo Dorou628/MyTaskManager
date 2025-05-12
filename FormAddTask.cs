@@ -19,10 +19,29 @@ namespace MyTaskManager
         PriorityLevel priority = PriorityLevel.Low;
 
         public MyTask? NewTask { get; set; }//新建任务
-        public FormAddTask()
+        public FormAddTask(MyTask task = null)
         {
             InitializeComponent();
-            InitAddWin();
+            if (task != null)
+            {
+                AddTaskName.Text = task.Name;
+                AddTaskDesc.Text = task.Description ?? "";
+                cmbPriority.SelectedIndex = (int)task.Priority;
+                if (task.ReminderTime.HasValue)
+                {
+                    ReminderSet.Checked = true;
+                    dtpReminder.Value = task.ReminderTime.Value;
+                }
+                else
+                {
+                    ReminderSet.Checked = false;
+                }
+                SelectDate = task.CreateDate;
+            }
+            else
+            {
+                InitAddWin(); // 原有初始化逻辑
+            }
         }
         public void InitAddWin()//初始化添加窗口
         {
